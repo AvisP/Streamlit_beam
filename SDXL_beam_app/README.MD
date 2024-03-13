@@ -4,4 +4,4 @@ There are two components to it, first is the text to image component where posit
 
 On the second part is a refiner model, that allows to upload an image and further process it. This part adds more details or improves image quality based on the prompts being entered.
 
-![Screenshot](<img src="https://i.ibb.co/W3ZPngr/Screenshot-2024-03-13-at-1-07-38-AM.png" alt="Screenshot-2024-03-13-at-1-07-38-AM" border="0">)
+![Screenshot](https://i.ibb.co/W3ZPngr/Screenshot-2024-03-13-at-1-07-38-AM.png")
