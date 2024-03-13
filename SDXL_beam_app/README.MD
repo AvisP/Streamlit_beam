@@ -4,3 +4,4 @@ There are two components to it, first is the text to image component where posit
 
 On the second part is a refiner model, that allows to upload an image and further process it. This part adds more details or improves image quality based on the prompts being entered.
 
+![Screenshot](https://ibb.co/N35mxZ0)
