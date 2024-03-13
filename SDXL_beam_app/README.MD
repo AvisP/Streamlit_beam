@@ -6,9 +6,9 @@ On the second part is a refiner model, that allows to upload an image and furthe
 
 The streamlit app uses an authentication package [st-gsheets-connection](https://github.com/streamlit/gsheets-connection) to get username and password and use it to retrieve a predefined list of users from a google sheet. Details about how to do the connection can be found [here](https://docs.streamlit.io/knowledge-base/tutorials/databases/private-gsheet)  
 
-The GUI code is in text2image_SDXL.py and the scripts to be deployed in beam cloud are beam_example_SDXL_base.py and beam_example_SDXL_refiner.py for base and refiner model respectively.
+The GUI code is in `text2image_SDXL.py` and the scripts to be deployed in beam cloud are `beam_example_SDXL_base.py` and `beam_example_SDXL_refiner.py` for base and refiner model respectively.
 
-Sample screenshots
+### Sample screenshots
 
 ![Screenshot|150%](https://i.ibb.co/W3ZPngr/Screenshot-2024-03-13-at-1-07-38-AM.png)
 
