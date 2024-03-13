@@ -6,7 +6,6 @@ import base64
 from PIL import Image
 import io
 from streamlit_gsheets import GSheetsConnection
-from streamlit_extras.mention import mention
 # from streamlit_image_select import image_select
 # huggingface-cli download stabilityai/stable-diffusion-xl-base-1.0 --include "*.safetensors" --local-dir "C:/Edrive/Custom_SD/"
 #cache_dir
@@ -55,10 +54,7 @@ def main():
     username = st.sidebar.text_input('Username')
     password = st.sidebar.text_input('Password', type='password')
     with st.sidebar:
-        
-        mention(label = "Request Access",
-            icon = "🔗",
-            url="https://forms.gle/gHMJZkiKi4X9bR5KA")
+        st.markdown("📝 [Request Access](https://forms.gle/gHMJZkiKi4X9bR5KA)")
     conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
     data = conn.read(spreadsheet=st.secrets.connections.gsheets.spreadsheet, ttl=60, usecols=[0, 1])
@@ -73,9 +69,6 @@ def main():
     if st.session_state.get('authenticated'):
         st.title('Demo Application for SDXL beam')
         st.markdown("💡 Sample Pompts [Link1](https://blog.segmind.com/prompt-guide-for-stable-diffusion-xl-crafting-textual-descriptions-for-image-generation/) [Link2](https://stable-diffusion-art.com/sdxl-styles/)")
-        # mention(label="Sample prompts",
-        #     icon="💡",  # Some icons are available... like Streamlit!
-        #     url="https://blog.segmind.com/prompt-guide-for-stable-diffusion-xl-crafting-textual-descriptions-for-image-generation/")
         hostname = st.secrets.server.url_SDXL_base
         AUTH_CRED = st.secrets.server.AUTH_CRED
 
