@@ -10,10 +10,10 @@ from transformers import (
 )
 import time
 # Cached model
-cache_path = "./mistral-7B"
+cache_path = "./models"
 
-# base_model = "meta-llama/Llama-2-7b-hf"
-base_model = "mistralai/Mistral-7B-v0.1"
+# base_model = "mistralai/Mistral-7B-v0.1"
+base_model = "meta-llama/Meta-Llama-3-8B-Instruct"
 
 app = App(
     name="llama2",
@@ -43,7 +43,7 @@ app = App(
 
 # This runs once when the container first boots
 def load_models():
-    model_id = "mistralai/Mistral-7B-Instruct-v0.1"
+    model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
     quantization_config = BitsAndBytesConfig(
         load_in_8bit=True,
         llm_int8_threshold=6.0,
@@ -109,7 +109,7 @@ def generate(**inputs):
             early_stopping=True,
         )
 
-    s = generation_output.sequences[0]
+    s = generation_output.sequences[0][input_ids.shape[-1]:]
     decoded_output = tokenizer.decode(s, skip_special_tokens=True).strip()
     end_time = time.time()
     elapsed_time = round(end_time-start_time, 4)

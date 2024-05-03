@@ -126,7 +126,7 @@ def main():
                     st.session_state.chat_history.append({ "role": "user", "content": "You are a friendly chatbot who answers user questions"})
                     st.session_state.chat_history.append({"role": "assistant", "content": "Hello! I'm a friendly chatbot here to help answer any questions you may have. What's on your mind today?"})
                     
-            user_query = st.chat_input("Enter your prompt", max_chars=500)
+            user_query = st.chat_input("Enter your prompt", max_chars=3000)
             display_messages()
             
             if user_query:
@@ -178,7 +178,7 @@ def main():
                                 if started_at:
                                     st.toast(task_id + " " + str(started_at) + " " + current_status)
                                 else:
-                                    st.toast(task_id + current_status)
+                                    st.toast(task_id + " " + current_status)
                                 time.sleep(5)
 
                         if response_status.json()["status"]=="COMPLETE":
@@ -189,10 +189,10 @@ def main():
 
                             if response_data.ok:
                                 llm_response = response_data.content.decode("utf-8")
-                                llm_response_only = extract_llm_response(llm_response)
-                                print(llm_response_only)
-                                st.chat_message("assistant", avatar="🤖").write(llm_response_only)
-                                st.session_state.chat_history.append({ "role": "assistant", "content": llm_response_only})
+                                # llm_response_only = extract_llm_response(llm_response)
+                                print(llm_response)
+                                st.chat_message("assistant", avatar="🤖").write(llm_response)
+                                st.session_state.chat_history.append({ "role": "assistant", "content": llm_response})
                                 # chat_history.append(["assisstant":llm_response_only]) 
                             else:
                                 print(" Response data error " + response_data)
